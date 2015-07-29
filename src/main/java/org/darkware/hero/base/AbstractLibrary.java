@@ -22,7 +22,7 @@ public abstract class AbstractLibrary<T> implements Library<T>
         this.storage = new LRUCacheMap<StaticId, T>(capacity, usageOrder);
     }
 
-    @Override public final boolean has(final StaticId key)
+    public final boolean has(final StaticId key)
     {
         synchronized (this.storage)
         {
@@ -30,12 +30,12 @@ public abstract class AbstractLibrary<T> implements Library<T>
         }
     }
 
-    @Override public final int capacity()
+    public final int capacity()
     {
         return this.storage.getCapacity();
     }
 
-    @Override public final int size()
+    public final int size()
     {
         synchronized (this.storage)
         {
@@ -43,7 +43,7 @@ public abstract class AbstractLibrary<T> implements Library<T>
         }
     }
 
-    @Override public final void insert(final StaticId key, final T item)
+    public final void insert(final StaticId key, final T item)
     {
         synchronized (this.storage)
         {
@@ -57,7 +57,7 @@ public abstract class AbstractLibrary<T> implements Library<T>
         }
     }
 
-    @Override public final T get(final StaticId key)
+    public final T get(final StaticId key)
     {
         synchronized (this.storage)
         {
@@ -65,7 +65,7 @@ public abstract class AbstractLibrary<T> implements Library<T>
         }
     }
 
-    @Override public final T remove(final StaticId key)
+    public final T remove(final StaticId key)
     {
         synchronized (this.storage)
         {
@@ -75,7 +75,7 @@ public abstract class AbstractLibrary<T> implements Library<T>
         }
     }
 
-    @Override public final int remove(final T item)
+    public final int remove(final T item)
     {
         int removed = 0;
 
