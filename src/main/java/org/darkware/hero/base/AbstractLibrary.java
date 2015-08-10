@@ -75,7 +75,7 @@ public abstract class AbstractLibrary<T> implements Library<T>
         }
     }
 
-    public final int remove(final T item)
+    public final int removeAll(final T item)
     {
         int removed = 0;
 

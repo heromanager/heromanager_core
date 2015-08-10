@@ -67,5 +67,5 @@ public interface Library<T>
      * @param item The item to remove.
      * @return
      */
-    int remove(T item);
+    int removeAll(T item);
 }
