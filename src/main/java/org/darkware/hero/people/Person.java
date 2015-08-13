@@ -1,5 +1,6 @@
 package org.darkware.hero.people;
 
+import org.darkware.hero.people.caste.Caste;
 import org.darkware.hero.people.race.Race;
 
 /**

@@ -1,5 +1,7 @@
 package org.darkware.hero.people;
 
+import org.darkware.hero.people.profession.Profession;
+
 /**
  * @author jeff
  * @since 2015-08-05
