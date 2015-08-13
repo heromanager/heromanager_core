@@ -1,4 +1,4 @@
-package org.darkware.hero.people;
+package org.darkware.hero.people.caste;
 
 import org.darkware.hero.base.NamedStaticObject;
 import org.darkware.hero.base.StaticId;
@@ -7,14 +7,14 @@ import org.darkware.hero.base.StaticId;
  * @author jeff
  * @since 2015-08-05
  */
-public class Profession extends NamedStaticObject
+public class Caste extends NamedStaticObject
 {
-    public Profession(CharSequence id, String name)
+    public Caste(CharSequence id, String name)
     {
         this(new StaticId(id), name);
     }
 
-    public Profession(StaticId id, String name)
+    public Caste(StaticId id, String name)
     {
         super(id, name);
     }
