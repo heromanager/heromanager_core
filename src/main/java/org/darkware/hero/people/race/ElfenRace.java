@@ -18,8 +18,9 @@ public class ElfenRace extends Race
     {
         super.applyBonuses();
 
-        this.getAttributes().add(Attribute.ALLURE, 4);
-        this.getAttributes().add(Attribute.FINESSE, 2);
-        this.getAttributes().add(Attribute.BRAWN, -2);
+        this.getAttributes().add(Attribute.ALLURE, 22);
+        this.getAttributes().add(Attribute.FINESSE, 18);
+        this.getAttributes().add(Attribute.BRAWN, -20);
+        this.getAttributes().add(Attribute.INSIGHT, 12);
     }
 }
