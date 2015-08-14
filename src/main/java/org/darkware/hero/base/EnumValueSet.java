@@ -1,6 +1,7 @@
 package org.darkware.hero.base;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -63,14 +64,18 @@ public class EnumValueSet<T extends Enum<T>>
         this.set(item, this.defaultValue);
     }
 
+    public final void resetAll()
+    {
+        for (T item : this.allFields())
+        {
+            this.reset(item);
+        }
+    }
+
     public final Set<T> allFields()
     {
         Set<T> fields = new TreeSet<T>(new EnumNameComparator<T>());
-
-        for (T item : enumClass.getEnumConstants())
-        {
-            fields.add(item);
-        }
+        Collections.addAll(fields, enumClass.getEnumConstants());
 
         return fields;
     }

@@ -20,6 +20,13 @@ public abstract class AbstractLibrary<T> implements Library<T>
         super();
 
         this.storage = new LRUCacheMap<StaticId, T>(capacity, usageOrder);
+
+        this.prepopulate();
+    }
+
+    protected void prepopulate()
+    {
+
     }
 
     public final boolean has(final StaticId key)

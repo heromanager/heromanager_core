@@ -4,7 +4,7 @@ package org.darkware.hero.base;
  * @author jeff
  * @since 2015-07-29
  */
-public abstract class BasicStaticObject
+public abstract class BasicStaticObject implements StaticObject
 {
     /** The object's defined identifier. */
     private final StaticId id;
@@ -14,6 +14,11 @@ public abstract class BasicStaticObject
         super();
 
         this.id = id;
+    }
+
+    public StaticId getId()
+    {
+        return id;
     }
 
     @Override public boolean equals(final Object o)

@@ -49,7 +49,7 @@ public class StaticId
     @Override
     public final String toString()
     {
-        return "+" + Arrays.toString(key);
+        return new String(this.key);
     }
 
     @Override
