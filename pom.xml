@@ -8,5 +8,12 @@
     <artifactId>heromanager_core</artifactId>
     <version>0.1-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+    </dependencies>
     
 </project>
