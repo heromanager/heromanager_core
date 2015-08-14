@@ -5,8 +5,10 @@ import org.darkware.hero.base.EnumFactorSet;
 import org.darkware.hero.base.EnumValueSet;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.language.Phoneme;
-import org.darkware.hero.people.Attribute;
-import org.darkware.hero.people.Attributes;
+import org.darkware.hero.people.*;
+import org.darkware.hero.people.race.Race;
+import org.darkware.hero.people.race.Races;
+import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;
@@ -50,9 +52,27 @@ public class Serializer
             }
         });
 
-        //builder.registerTypeAdapter(EnumFactorSet.class, new EnumFactorSetSerializaitonHelper());
-        //builder.registerTypeAdapter(EnumValueSet.class, new EnumValueSetSerializaitonHelper());
-        builder.registerTypeAdapter(Attributes.class, new AttributesSerializationHelper());
+        builder.registerTypeAdapter(SimpleAttributes.class, new AttributesSerializationHelper());
+        builder.registerTypeAdapter(CompoundAttributes.class, new AttributesSerializationHelper());
+
+        builder.registerTypeHierarchyAdapter(BaseGroup.class, new JsonSerializer<BaseGroup>()
+        {
+            public JsonElement serialize(final BaseGroup group, final Type type,
+                                         final JsonSerializationContext jsonSerializationContext)
+            {
+                return new JsonPrimitive(group.getId().toString());
+            }
+        });
+
+        builder.registerTypeAdapter(Race.class, new JsonDeserializer<Race>()
+        {
+            public Race deserialize(final JsonElement jsonElement, final Type type,
+                                    final JsonDeserializationContext jsonDeserializationContext)
+                    throws JsonParseException
+            {
+                return Races.lookup(jsonElement.getAsString());
+            }
+        });
     }
 
     private final Gson gson;

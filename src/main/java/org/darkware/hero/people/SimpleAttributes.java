@@ -6,10 +6,15 @@ import org.darkware.hero.base.EnumValueSet;
  * @author jeff
  * @since 2015-08-07
  */
-public class SimpleAttributes extends EnumValueSet<Attribute>
+public class SimpleAttributes extends EnumValueSet<Attribute> implements Attributes
 {
+    public SimpleAttributes(int defaultValue)
+    {
+        super(defaultValue, Attribute.class);
+    }
+
     public SimpleAttributes()
     {
-        super(0, Attribute.class);
+        this(0);
     }
 }

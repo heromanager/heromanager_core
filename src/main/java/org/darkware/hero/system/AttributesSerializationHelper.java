@@ -7,6 +7,7 @@ import com.sun.javaws.exceptions.InvalidArgumentException;
 import org.darkware.hero.base.EnumFactorSet;
 import org.darkware.hero.people.Attribute;
 import org.darkware.hero.people.Attributes;
+import org.darkware.hero.people.SimpleAttributes;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -28,7 +29,7 @@ public class AttributesSerializationHelper implements JsonSerializer<Attributes>
                                         final JsonDeserializationContext jsonDeserializationContext)
             throws JsonParseException
     {
-        Attributes attrs = new Attributes();
+        Attributes attrs = new SimpleAttributes();
 
         for (Map.Entry<String, JsonElement> entry: jsonElement.getAsJsonObject().entrySet())
         {

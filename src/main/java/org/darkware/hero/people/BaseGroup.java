@@ -20,7 +20,7 @@ public abstract class BaseGroup extends NamedStaticObject
     {
         super(id, name);
 
-        this.attrs = new Attributes();
+        this.attrs = new SimpleAttributes();
 
         this.applyBonuses();
     }
