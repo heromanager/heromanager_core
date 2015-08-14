@@ -4,6 +4,7 @@ import org.darkware.hero.base.EnumFactorSet;
 import org.darkware.hero.language.PhonemeTag;
 import org.darkware.hero.people.Attribute;
 import org.darkware.hero.people.Attributes;
+import org.darkware.hero.people.SimpleAttributes;
 import org.darkware.hero.system.Serializer;
 
 /**
@@ -30,7 +31,7 @@ public class EnumFactorDemo
         System.out.println(Serializer.global().toJson(phonemes));
         */
 
-        Attributes simpleAttrs = new Attributes();
+        Attributes simpleAttrs = new SimpleAttributes();
         simpleAttrs.add(Attribute.ALLURE, 10);
         simpleAttrs.add(Attribute.BRAWN, 8);
         simpleAttrs.add(Attribute.FITNESS, 14);
