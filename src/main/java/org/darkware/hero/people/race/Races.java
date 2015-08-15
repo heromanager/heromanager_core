@@ -4,7 +4,7 @@ import org.darkware.hero.base.StaticId;
 import org.darkware.hero.base.StaticObjectLibrary;
 
 /**
- * @author ${user}
+ * @author jeff
  * @since 2015-08-12
  */
 public class Races extends StaticObjectLibrary<Race>

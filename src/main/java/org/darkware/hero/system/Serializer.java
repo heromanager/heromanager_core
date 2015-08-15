@@ -6,6 +6,10 @@ import org.darkware.hero.base.EnumValueSet;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.language.Phoneme;
 import org.darkware.hero.people.*;
+import org.darkware.hero.people.caste.Caste;
+import org.darkware.hero.people.caste.Castes;
+import org.darkware.hero.people.profession.Profession;
+import org.darkware.hero.people.profession.Professions;
 import org.darkware.hero.people.race.Race;
 import org.darkware.hero.people.race.Races;
 import sun.java2d.pipe.SpanShapeRenderer;
@@ -73,6 +77,27 @@ public class Serializer
                 return Races.lookup(jsonElement.getAsString());
             }
         });
+
+        builder.registerTypeAdapter(Caste.class, new JsonDeserializer<Caste>()
+        {
+            public Caste deserialize(final JsonElement jsonElement, final Type type,
+                                    final JsonDeserializationContext jsonDeserializationContext)
+                    throws JsonParseException
+            {
+                return Castes.lookup(jsonElement.getAsString());
+            }
+        });
+
+        builder.registerTypeAdapter(Profession.class, new JsonDeserializer<Profession>()
+        {
+            public Profession deserialize(final JsonElement jsonElement, final Type type,
+                                    final JsonDeserializationContext jsonDeserializationContext)
+                    throws JsonParseException
+            {
+                return Professions.lookup(jsonElement.getAsString());
+            }
+        });
+
     }
 
     private final Gson gson;
