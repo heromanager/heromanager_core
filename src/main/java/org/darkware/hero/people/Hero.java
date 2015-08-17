@@ -1,6 +1,8 @@
 package org.darkware.hero.people;
 
+import org.darkware.hero.people.caste.Caste;
 import org.darkware.hero.people.profession.Profession;
+import org.darkware.hero.people.race.Race;
 
 /**
  * @author jeff
@@ -8,11 +10,19 @@ import org.darkware.hero.people.profession.Profession;
  */
 public class Hero extends Person
 {
+    private final CompoundAttributes activeAttributes;
+    private final SimpleAttributes baseAttributes;
+
     private Profession profession;
 
     public Hero()
     {
         super();
+
+        this.baseAttributes = new SimpleAttributes(40);
+        this.activeAttributes = new CompoundAttributes();
+
+        this.activeAttributes.addComponent("base", this.baseAttributes);
     }
 
     /**
@@ -33,6 +43,31 @@ public class Hero extends Person
     public final void setProfession(Profession profession)
     {
         this.profession = profession;
+
+        this.activeAttributes.addComponent("profession", profession.getAttributes());
     }
 
+    @Override public void setCaste(final Caste caste)
+    {
+        super.setCaste(caste);
+
+        this.activeAttributes.addComponent("caste", caste.getAttributes());
+    }
+
+    @Override public void setRace(final Race race)
+    {
+        super.setRace(race);
+
+        this.activeAttributes.addComponent("race", race.getAttributes());
+    }
+
+    public Attributes getBaseAttributes()
+    {
+        return baseAttributes;
+    }
+
+    public Attributes getActiveAttributes()
+    {
+        return this.activeAttributes;
+    }
 }
