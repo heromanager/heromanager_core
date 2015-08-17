@@ -1,5 +1,7 @@
 package org.darkware.hero.util;
 
+import org.darkware.hero.base.Range;
+
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -68,6 +70,18 @@ public class RNG
             int r = RNG.global.nextInt(array.length);
             return array[r];
         }
+    }
+
+    /**
+     * Select an integer from an integer {@link Range}. The values selected are inclusive
+     * within the range (ie: the ending value is a valid selection result).
+     *
+     * @param range The <code>Range</code> to select from.
+     * @return An integer from the range's start to end, inclusive.
+     */
+    public static int pick(Range range)
+    {
+        return range.getStart() + RNG.global.nextInt(range.getSize());
     }
 
     /**
