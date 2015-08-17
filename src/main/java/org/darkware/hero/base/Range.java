@@ -1,11 +1,64 @@
 package org.darkware.hero.base;
 
+import java.util.InputMismatchException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author jeff
  * @since 2015-08-16
  */
 public class Range
 {
+    static private final String BRACKET_START = "[{(<";
+    static private final String BRACKET_END = "]})>";
+    static private final String[] DELIMITERs = { "..", "-" };
+
+    static private int getArgument(int index, String name, int[] args)
+    {
+        if (index >= args.length) throw new IllegalArgumentException("No value supplied for " + name);
+
+        return args[index];
+    }
+
+    static private int[] parse(String text)
+    {
+        // First, scrub all whitespace
+        String working = text.replaceAll("\\s+", "");
+
+        // Ensure we have enough characters to work on
+        if (working.length() < 3) throw new IllegalArgumentException("Invalid format for Range.");
+
+        // Remove any bracketing characters
+        char startChar = working.charAt(0);
+        int startMatch = Range.BRACKET_START.indexOf(startChar);
+
+        if (startMatch >= 0)
+        {
+            if (working.charAt(working.length() - 1) == Range.BRACKET_END.charAt(startMatch))
+            {
+                working = working.substring(1, working.length()-1);
+            }
+        }
+
+        // Look for the pattern
+        Pattern rangePattern = Pattern.compile("(\\-?\\d+)(\\-|\\.\\.)(\\-?\\d+)");
+        Matcher rangeMatcher = rangePattern.matcher(working);
+        if (rangeMatcher.matches())
+        {
+            final int[] bounds = new int[2];
+
+            bounds[0] = Integer.parseInt(rangeMatcher.group(1));
+            bounds[1] = Integer.parseInt(rangeMatcher.group(3));
+
+            return bounds;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Invalid format for Range.");
+        }
+    }
+
     private final int start;
     private final int end;
 
@@ -17,6 +70,16 @@ public class Range
 
         this.start = start;
         this.end = end;
+    }
+
+    public Range(final int ... bounds)
+    {
+        this(Range.getArgument(0, "start", bounds), Range.getArgument(1, "end", bounds));
+    }
+
+    public Range(String text)
+    {
+        this(Range.parse(text));
     }
 
     /**
