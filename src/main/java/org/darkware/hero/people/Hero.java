@@ -1,6 +1,7 @@
 package org.darkware.hero.people;
 
 import org.darkware.hero.people.caste.Caste;
+import org.darkware.hero.people.health.Health;
 import org.darkware.hero.people.profession.Profession;
 import org.darkware.hero.people.race.Race;
 
@@ -10,10 +11,12 @@ import org.darkware.hero.people.race.Race;
  */
 public class Hero extends Person
 {
+    private Profession profession;
+
     private final CompoundAttributes activeAttributes;
     private final SimpleAttributes baseAttributes;
 
-    private Profession profession;
+    private final Health health;
 
     public Hero()
     {
@@ -23,6 +26,8 @@ public class Hero extends Person
         this.activeAttributes = new CompoundAttributes();
 
         this.activeAttributes.addComponent("base", this.baseAttributes);
+
+        this.health = new Health();
     }
 
     /**
