@@ -24,15 +24,12 @@ public class RNG
      */
     public static <T> T pick(Set<T> set)
     {
-        synchronized (set)
-        {
-            int r = RNG.global.nextInt(set.size());
+        int r = RNG.global.nextInt(set.size());
 
-            for (T item : set)
-            {
-                if (r == 0) return item;
-                r--;
-            }
+        for (T item : set)
+        {
+            if (r == 0) return item;
+            r--;
         }
 
         throw new UnknownError("Set bounds overflow while selecting a random entry.");
@@ -46,13 +43,10 @@ public class RNG
      * @param <T> Any type
      * @return One of the objects stored in the list.
      */
-    public static <T> T pick(List<T> list)
+    public static <T> T pick(final List<T> list)
     {
-        synchronized (list)
-        {
-            int r = RNG.global.nextInt(list.size());
-            return list.get(r);
-        }
+        int r = RNG.global.nextInt(list.size());
+        return list.get(r);
     }
 
     /**
@@ -63,13 +57,10 @@ public class RNG
      * @param <T> Any type
      * @return One of the objects stored in the array.
      */
-    public static <T> T pick(T[] array)
+    public static <T> T pick(final T[] array)
     {
-        synchronized (array)
-        {
-            int r = RNG.global.nextInt(array.length);
-            return array[r];
-        }
+        int r = RNG.global.nextInt(array.length);
+        return array[r];
     }
 
     /**
