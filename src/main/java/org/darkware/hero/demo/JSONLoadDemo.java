@@ -11,7 +11,7 @@ public class JSONLoadDemo
 {
     public static final void main(String ... args)
     {
-        Race halfDragon = new Race("HDRG", "Half Dragon");
+        Race halfDragon = new Race("HDRG", "Half Dragon", 2);
 
         System.out.println("JSON OUTPUT:");
         System.out.println(Serializer.global().toJson(halfDragon));
