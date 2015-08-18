@@ -10,7 +10,7 @@ public class HalfElfRace extends ElfenRace
 {
     public HalfElfRace()
     {
-        super("HELF", "Half-Elf");
+        super("HELF", "Half-Elf", 9);
     }
 
     @Override protected void applyBonuses()

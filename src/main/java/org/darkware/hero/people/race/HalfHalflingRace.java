@@ -10,7 +10,7 @@ public class HalfHalflingRace extends HumanRace
 {
     public HalfHalflingRace()
     {
-        super("HHLF", "Half-Halfling");
+        super("HHLF", "Half-Halfling", 3);
     }
 
     @Override protected void applyBonuses()

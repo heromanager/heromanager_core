@@ -10,10 +10,10 @@ public class HumanRace extends Race
 {
     public HumanRace()
     {
-        super("HUMN", "Human");
+        super("HUMN", "Human", 16);
     }
 
-    public HumanRace(String id, String name) { super(id, name); }
+    protected HumanRace(String id, String name, int rarity) { super(id, name, rarity); }
 
     @Override protected void applyBonuses()
     {

@@ -10,13 +10,13 @@ import org.darkware.hero.people.BaseGroup;
  */
 public class Caste extends BaseGroup
 {
-    public Caste(CharSequence id, String name)
+    public Caste(CharSequence id, String name, int rarity)
     {
-        this(new StaticId(id), name);
+        this(new StaticId(id), name, rarity);
     }
 
-    public Caste(StaticId id, String name)
+    public Caste(StaticId id, String name, int rarity)
     {
-        super(id, name);
+        super(id, name, rarity);
     }
 }

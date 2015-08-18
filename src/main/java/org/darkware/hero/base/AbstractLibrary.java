@@ -1,5 +1,7 @@
 package org.darkware.hero.base;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -69,6 +71,14 @@ public abstract class AbstractLibrary<T> implements Library<T>
         synchronized (this.storage)
         {
             return this.storage.get(key);
+        }
+    }
+
+    public final Collection<T> getAll()
+    {
+        synchronized (this.storage)
+        {
+            return this.storage.values();
         }
     }
 

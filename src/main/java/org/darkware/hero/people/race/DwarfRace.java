@@ -10,7 +10,7 @@ public class DwarfRace extends SubterraneanRace
 {
     public DwarfRace()
     {
-        super("DWRF", "Dwarf");
+        super("DWRF", "Dwarf", 8);
     }
 
     @Override protected void applyBonuses()

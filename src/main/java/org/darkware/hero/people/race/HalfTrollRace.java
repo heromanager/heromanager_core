@@ -10,7 +10,7 @@ public class HalfTrollRace extends SubterraneanRace
 {
     public HalfTrollRace()
     {
-        super("HTRL", "Half-Troll");
+        super("HTRL", "Half-Troll", 4);
     }
 
     @Override protected void applyBonuses()

@@ -10,14 +10,14 @@ import org.darkware.hero.people.BaseGroup;
  */
 public class Profession extends BaseGroup
 {
-    public Profession(CharSequence id, String name)
+    public Profession(CharSequence id, String name, int rarity)
     {
-        this(new StaticId(id), name);
+        this(new StaticId(id), name, rarity);
     }
 
-    public Profession(StaticId id, String name)
+    public Profession(StaticId id, String name, int rarity)
     {
-        super(id, name);
+        super(id, name, rarity);
     }
 }
 

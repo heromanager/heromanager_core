@@ -10,7 +10,7 @@ public class HalfDragonRace extends SubterraneanRace
 {
     public HalfDragonRace()
     {
-        super("HDRG", "Half-Dragon");
+        super("HDRG", "Half-Dragon", 2);
     }
 
     @Override protected void applyBonuses()

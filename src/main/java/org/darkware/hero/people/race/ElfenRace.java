@@ -7,11 +7,11 @@ import org.darkware.hero.people.Attribute;
  * @author jeff
  * @since 2015-08-06
  */
-public class ElfenRace extends Race
+public abstract class ElfenRace extends Race
 {
-    public ElfenRace(String id, String name)
+    protected ElfenRace(String id, String name, int rarity)
     {
-        super(id, name);
+        super(id, name, rarity);
     }
 
     @Override protected void applyBonuses()

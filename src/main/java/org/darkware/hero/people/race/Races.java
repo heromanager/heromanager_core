@@ -3,6 +3,8 @@ package org.darkware.hero.people.race;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.base.StaticObjectLibrary;
 
+import java.util.Collection;
+
 /**
  * @author jeff
  * @since 2015-08-12
@@ -19,6 +21,11 @@ public class Races extends StaticObjectLibrary<Race>
     public static Race lookup(StaticId id)
     {
         return Races.global.get(id);
+    }
+
+    public static Collection<Race> all()
+    {
+        return Races.global.getAll();
     }
 
     public Races()

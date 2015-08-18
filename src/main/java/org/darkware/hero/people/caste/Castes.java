@@ -4,6 +4,8 @@ import org.darkware.hero.base.StaticId;
 import org.darkware.hero.base.StaticObjectLibrary;
 import org.darkware.hero.people.profession.Profession;
 
+import java.util.Collection;
+
 /**
  * @author jeff
  * @since 2015-08-12
@@ -20,6 +22,11 @@ public class Castes extends StaticObjectLibrary<Caste>
     public static Caste lookup(StaticId id)
     {
         return Castes.global.get(id);
+    }
+
+    public static Collection<Caste> all()
+    {
+        return Castes.global.getAll();
     }
 
     public Castes()

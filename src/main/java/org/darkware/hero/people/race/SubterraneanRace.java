@@ -6,11 +6,11 @@ import org.darkware.hero.people.Attribute;
  * @author jeff
  * @since 2015-08-06
  */
-public class SubterraneanRace extends Race
+public abstract class SubterraneanRace extends Race
 {
-    public SubterraneanRace(String id, String name)
+    protected SubterraneanRace(String id, String name, int rarity)
     {
-        super(id, name);
+        super(id, name, rarity);
     }
 
     @Override protected void applyBonuses()

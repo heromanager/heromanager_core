@@ -10,12 +10,12 @@ public class HalflingRace extends HumanRace
 {
     public HalflingRace()
     {
-        super("HALF", "Halfling");
+        super("HALF", "Halfling", 4);
     }
 
-    public HalflingRace(String id, String name)
+    protected HalflingRace(String id, String name, int rarity)
     {
-        super(id, name);
+        super(id, name, rarity);
     }
 
     @Override protected void applyBonuses()
