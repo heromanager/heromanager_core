@@ -3,6 +3,9 @@ package org.darkware.hero.people;
 import org.darkware.hero.base.Deck;
 import org.darkware.hero.people.caste.Caste;
 import org.darkware.hero.people.caste.Castes;
+import org.darkware.hero.people.generation.CasteDeckFilter;
+import org.darkware.hero.people.generation.ProfessionDeckFilter;
+import org.darkware.hero.people.generation.RaceDeckFilter;
 import org.darkware.hero.people.profession.Profession;
 import org.darkware.hero.people.profession.Professions;
 import org.darkware.hero.people.race.Race;
@@ -45,7 +48,24 @@ public class HeroGenerator
     {
         Hero hero = new Hero();
 
+        RaceDeckFilter raceDeckFilter = new RaceDeckFilter();
+        CasteDeckFilter casteDeckFilter = new CasteDeckFilter();
+        ProfessionDeckFilter professionDeckFilter = new ProfessionDeckFilter();
 
+        Deck<Race> raceDeck = HeroGenerator.raceDeck.filter(raceDeckFilter);
+        Race r = raceDeck.pick();
+        hero.setRace(r);
+        casteDeckFilter.addProhibited(r);
+        professionDeckFilter.addProhibited(r);
+
+        Deck<Caste> casteDeck = HeroGenerator.casteDeck.filter(casteDeckFilter);
+        Caste c = casteDeck.pick();
+        hero.setCaste(c);
+        professionDeckFilter.addProhibited(c);
+
+        Deck<Profession> professionDeck = HeroGenerator.profDeck.filter(professionDeckFilter);
+        Profession p = professionDeck.pick();
+        hero.setProfession(p);
 
         return hero;
     }

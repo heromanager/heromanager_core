@@ -3,6 +3,9 @@ package org.darkware.hero.people;
 import org.darkware.hero.base.NamedStaticObject;
 import org.darkware.hero.base.Rarified;
 import org.darkware.hero.base.StaticId;
+import org.darkware.hero.people.caste.Caste;
+import org.darkware.hero.people.profession.Profession;
+import org.darkware.hero.people.race.Race;
 
 /**
  * @author jeff
@@ -36,6 +39,21 @@ public abstract class BaseGroup extends NamedStaticObject implements Rarified
     protected void applyBonuses()
     {
 
+    }
+
+    public Race[] getIncompatibleRaces()
+    {
+        return new Race[0];
+    }
+
+    public Caste[] getIncompatibleCastes()
+    {
+        return new Caste[0];
+    }
+
+    public Profession[] getIncompatibleProfessions()
+    {
+        return new Profession[0];
     }
 
     public int getRarity()
