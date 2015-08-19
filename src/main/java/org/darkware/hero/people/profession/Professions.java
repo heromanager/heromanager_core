@@ -37,6 +37,6 @@ public class Professions extends StaticObjectLibrary<Profession>
     {
         super.prepopulate();
 
-
+        this.insert(new WarriorProfession());
     }
 }
