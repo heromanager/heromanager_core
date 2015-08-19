@@ -101,6 +101,32 @@ public class Deck<T>
     }
 
     /**
+     * Creates a new Deck which has been filtered by one or more DeckFilters.
+     *
+     * @param filters The filters to pass items through.
+     * @return A Deck containing only items allowed by all filters.
+     */
+    public Deck<T> filter(DeckFilter<T> ... filters)
+    {
+        final Deck<T> filtered = new Deck<T>();
+
+        this.access.readLock().lock();
+        try
+        {
+            for (T item : this.items)
+            {
+                for (DeckFilter<T> filter : filters)
+                {
+                    if (filter.allowItem(item)) filtered.add(item);
+                }
+            }
+        }
+        finally { this.access.readLock().unlock(); }
+
+        return filtered;
+    }
+
+    /**
      * Randomizes the order of the items in the deck.
      */
     public void shuffle()
