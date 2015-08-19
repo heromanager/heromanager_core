@@ -12,10 +12,10 @@ import java.util.Map;
  * should be avoided when working with this sort of Library. <code>StaticObject</code>s with
  * identical IDs will not coexist here, and will replace/remove each other when its attempted.
  *
- * @author ${user}
+ * @author jeff
  * @since 2015-07-29
  */
-public abstract class StaticObjectLibrary<T extends StaticObject> extends AbstractLibrary<T> implements StaticLibrary<T>
+public class StaticObjectLibrary<T extends StaticObject> extends AbstractLibrary<T> implements StaticLibrary<T>
 {
     protected StaticObjectLibrary()
     {
