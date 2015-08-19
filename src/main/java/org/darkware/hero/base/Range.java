@@ -1,5 +1,7 @@
 package org.darkware.hero.base;
 
+import org.darkware.hero.util.TextUtils;
+
 import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +26,7 @@ public class Range
     static private int[] parse(String text)
     {
         // First, scrub all whitespace
-        String working = text.replaceAll("\\s+", "");
+        String working = TextUtils.stripWhitespace(text);
 
         // Ensure we have enough characters to work on
         if (working.length() < 3) throw new IllegalArgumentException("Invalid format for Range.");
