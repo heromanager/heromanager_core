@@ -38,6 +38,13 @@ public class Castes extends StaticObjectLibrary<Caste>
     {
         super.prepopulate();
 
+        this.insert(new NobleCaste());
 
+        this.insert(new PeasantCaste());
+        this.insert(new OutlawCaste());
+
+        this.insert(new VampyrCaste());
+        this.insert(new WerewolfCaste());
+        this.insert(new WererabbitCaste());
     }
 }
