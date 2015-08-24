@@ -33,6 +33,14 @@ public abstract class BaseGroupDeckFilter<T extends BaseGroup> implements DeckFi
         }
     }
 
+    protected void prohibit(Set<T> items)
+    {
+        for (T item : items)
+        {
+            this.prohibited.add(item.getId());
+        }
+    }
+
     public abstract void addProhibited(Race race);
     public abstract void addProhibited(Caste caste);
     public abstract void addProhibited(Profession profession);
