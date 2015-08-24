@@ -1,7 +1,7 @@
 package org.darkware.hero.base;
 
 /**
- * @author ${user}
+ * @author jsharpe
  * @since 2015-07-29
  */
 public abstract class NamedStaticObject extends BasicStaticObject
@@ -14,5 +14,15 @@ public abstract class NamedStaticObject extends BasicStaticObject
         super(id);
 
         this.name = name.toString();
+    }
+
+    /**
+     * Fetches the name assigned to this object.
+     *
+     * @return The object's name.
+     */
+    public final String getName()
+    {
+        return this.name;
     }
 }
