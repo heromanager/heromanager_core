@@ -38,5 +38,17 @@ public class Professions extends StaticObjectLibrary<Profession>
         super.prepopulate();
 
         this.insert(new WarriorProfession());
+        this.insert(new PirateProfession());
+        this.insert(new BerserkerProfession());
+
+        this.insert(new CookProfession());
+
+        this.insert(new AcolyteProfession());
+        this.insert(new ArchaeologistProfession());
+        this.insert(new ClerkProfession());
+
+        this.insert(new ThiefProfession());
+        this.insert(new NinjaProfession());
+        this.insert(new AssassinProfession());
     }
 }
