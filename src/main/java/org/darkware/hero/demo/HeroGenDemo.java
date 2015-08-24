@@ -22,6 +22,12 @@ public class HeroGenDemo
 
         Hero hero = heroGen.generateHero(template);
 
+        System.out.println("Race: " + hero.getRace().getName());
+        System.out.println("Caste: " + hero.getCaste().getName());
+        System.out.println("Profession: " + hero.getProfession().getName());
+
+        System.out.println();
+
         System.out.println("==== GENERATED ====");
         System.out.println(Serializer.global().toJson(hero));
     }
