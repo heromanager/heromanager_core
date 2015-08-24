@@ -20,9 +20,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class HeroGenerator
 {
     private static final AtomicBoolean localInit = new AtomicBoolean(false);
-    private static final Deck<Race> raceDeck = new Deck<Race>();
-    private static final Deck<Caste> casteDeck = new Deck<Caste>();
-    private static final Deck<Profession> profDeck = new Deck<Profession>();
+    private static final Deck<Race> raceDeck = new Deck<>();
+    private static final Deck<Caste> casteDeck = new Deck<>();
+    private static final Deck<Profession> profDeck = new Deck<>();
 
     private static void initializeDecks()
     {
@@ -42,6 +42,8 @@ public class HeroGenerator
     public HeroGenerator()
     {
         super();
+
+        HeroGenerator.initializeDecks();
     }
 
     public Hero generateHero(HeroTemplate template)
