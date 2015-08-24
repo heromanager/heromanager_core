@@ -19,7 +19,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 
 /**
- * @author ${user}
+ * @author jeff
  * @since 2015-08-05
  */
 public class Serializer
