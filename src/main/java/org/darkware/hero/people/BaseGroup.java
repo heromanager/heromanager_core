@@ -7,6 +7,9 @@ import org.darkware.hero.people.caste.Caste;
 import org.darkware.hero.people.profession.Profession;
 import org.darkware.hero.people.race.Race;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author jeff
  * @since 2015-08-05
@@ -41,19 +44,19 @@ public abstract class BaseGroup extends NamedStaticObject implements Rarified
 
     }
 
-    public Race[] getIncompatibleRaces()
+    public Set<Race> getIncompatibleRaces()
     {
-        return new Race[0];
+        return new HashSet<>();
     }
 
-    public Caste[] getIncompatibleCastes()
+    public Set<Caste> getIncompatibleCastes()
     {
-        return new Caste[0];
+        return new HashSet<>();
     }
 
-    public Profession[] getIncompatibleProfessions()
+    public Set<Profession> getIncompatibleProfessions()
     {
-        return new Profession[0];
+        return new HashSet<>();
     }
 
     public int getRarity()
