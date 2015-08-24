@@ -8,6 +8,6 @@ public class WerewolfCaste extends CursedCaste
 {
     public WerewolfCaste()
     {
-        super("WRWF", "Werewolf", 4);
+        super("WWLF", "Werewolf", 4);
     }
 }

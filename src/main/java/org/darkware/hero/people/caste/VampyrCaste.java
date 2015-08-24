@@ -10,4 +10,6 @@ public class VampyrCaste extends CursedCaste
     {
         super("VMPR", "Vampyr", 4);
     }
+
+
 }

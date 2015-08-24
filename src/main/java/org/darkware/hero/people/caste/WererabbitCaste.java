@@ -8,6 +8,6 @@ public class WererabbitCaste extends CursedCaste
 {
     public WererabbitCaste()
     {
-        super("WRRB", "Wererabbit", 2);
+        super("WRBT", "Wererabbit", 2);
     }
 }
