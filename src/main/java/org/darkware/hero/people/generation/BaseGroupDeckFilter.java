@@ -8,6 +8,7 @@ import org.darkware.hero.people.caste.Caste;
 import org.darkware.hero.people.profession.Profession;
 import org.darkware.hero.people.race.Race;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,11 +26,21 @@ public abstract class BaseGroupDeckFilter<T extends BaseGroup> implements DeckFi
         this.prohibited = new HashSet<StaticId>();
     }
 
+    protected void prohibit(StaticId id)
+    {
+        this.prohibited.add(id);
+    }
+
+    protected void prohibit(Collection<StaticId> ids)
+    {
+        this.prohibited.addAll(ids);
+    }
+
     protected void prohibit(T ... items)
     {
         for (T item : items)
         {
-            this.prohibited.add(item.getId());
+            this.prohibit(item.getId());
         }
     }
 
@@ -37,7 +48,7 @@ public abstract class BaseGroupDeckFilter<T extends BaseGroup> implements DeckFi
     {
         for (T item : items)
         {
-            this.prohibited.add(item.getId());
+            this.prohibit(item.getId());
         }
     }
 

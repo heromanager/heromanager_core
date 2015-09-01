@@ -12,12 +12,12 @@ public class ProfessionDeckFilter extends BaseGroupDeckFilter<Profession>
 {
     @Override public void addProhibited(final Race race)
     {
-        this.prohibit(race.getIncompatibleProfessions());
+        this.prohibit(GroupCombos.restrictions(race).getRestrictProfessions());
     }
 
     @Override public void addProhibited(final Caste caste)
     {
-        this.prohibit(caste.getIncompatibleProfessions());
+        this.prohibit(GroupCombos.restrictions(caste).getRestrictProfessions());
     }
 
     @Override public void addProhibited(final Profession profession)

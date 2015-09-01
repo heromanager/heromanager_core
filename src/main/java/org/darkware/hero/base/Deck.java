@@ -101,29 +101,29 @@ public class Deck<T>
     }
 
     /**
-     * Creates a new Deck which has been filtered by one or more DeckFilters.
+     * Filters items of the Deck, removing items denied by the filter.
      *
      * @param filters The filters to pass items through.
-     * @return A Deck containing only items allowed by all filters.
      */
-    public Deck<T> filter(DeckFilter<T> ... filters)
+    public void filter(DeckFilter<T> ... filters)
     {
-        final Deck<T> filtered = new Deck<T>();
-
-        this.access.readLock().lock();
+        this.access.writeLock().lock();
         try
         {
-            for (T item : this.items)
+            Iterator<T> iter = this.items.iterator();
+            while (iter.hasNext())
             {
                 for (DeckFilter<T> filter : filters)
                 {
-                    if (filter.allowItem(item)) filtered.add(item);
+                    if (!filter.allowItem(iter.next()))
+                    {
+                        iter.remove();
+                        break;
+                    }
                 }
             }
         }
-        finally { this.access.readLock().unlock(); }
-
-        return filtered;
+        finally { this.access.writeLock().unlock(); }
     }
 
     /**

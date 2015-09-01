@@ -3,8 +3,9 @@ package org.darkware.hero.people.race;
 import org.darkware.hero.people.Attribute;
 import org.darkware.hero.people.caste.Caste;
 import org.darkware.hero.people.caste.Castes;
-import org.darkware.hero.people.profession.Profession;
-import org.darkware.hero.people.profession.Professions;
+import org.darkware.hero.people.caste.WererabbitCaste;
+import org.darkware.hero.people.caste.WerewolfCaste;
+import org.darkware.hero.people.profession.*;
 
 import java.util.Set;
 
@@ -30,24 +31,15 @@ public abstract class SubterraneanRace extends Race
         this.getAttributes().add(Attribute.FITNESS, 20);
     }
 
-    @Override public Set<Profession> getIncompatibleProfessions()
+    @Override protected void declareIncompatibilities()
     {
-        Set<Profession> prohibit = super.getIncompatibleProfessions();
+        super.declareIncompatibilities();
 
-        prohibit.add(Professions.lookup("PRAT"));
-        prohibit.add(Professions.lookup("NNJA"));
-        prohibit.add(Professions.lookup("ACLT"));
+        this.declareIncompatibility(PirateProfession.class);
+        this.declareIncompatibility(NinjaProfession.class);
+        this.declareIncompatibility(AcolyteProfession.class);
 
-        return prohibit;
-    }
-
-    @Override public Set<Caste> getIncompatibleCastes()
-    {
-        Set<Caste> prohibit = super.getIncompatibleCastes();
-
-        prohibit.add(Castes.lookup("WRBT"));
-        prohibit.add(Castes.lookup("WWLF"));
-
-        return prohibit;
+        this.declareIncompatibility(WererabbitCaste.class);
+        this.declareIncompatibility(WerewolfCaste.class);
     }
 }

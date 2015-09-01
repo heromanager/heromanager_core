@@ -12,7 +12,7 @@ public class CasteDeckFilter extends BaseGroupDeckFilter<Caste>
 {
     @Override public void addProhibited(final Race race)
     {
-        this.prohibit(race.getIncompatibleCastes());
+        this.prohibit(GroupCombos.restrictions(race).getRestrictCastes());
     }
 
     @Override public void addProhibited(final Caste caste)
@@ -22,6 +22,6 @@ public class CasteDeckFilter extends BaseGroupDeckFilter<Caste>
 
     @Override public void addProhibited(final Profession profession)
     {
-        this.prohibit(profession.getIncompatibleCastes());
+        this.prohibit(GroupCombos.restrictions(profession).getRestrictCastes());
     }
 }
