@@ -1,22 +1,18 @@
 package org.darkware.hero.system;
 
 import com.google.gson.*;
-import org.darkware.hero.base.EnumFactorSet;
-import org.darkware.hero.base.EnumValueSet;
 import org.darkware.hero.base.StaticId;
-import org.darkware.hero.language.Phoneme;
-import org.darkware.hero.people.*;
+import org.darkware.hero.people.BaseGroup;
+import org.darkware.hero.people.CompoundAttributes;
+import org.darkware.hero.people.SimpleAttributes;
 import org.darkware.hero.people.caste.Caste;
 import org.darkware.hero.people.caste.Castes;
 import org.darkware.hero.people.profession.Profession;
 import org.darkware.hero.people.profession.Professions;
 import org.darkware.hero.people.race.Race;
 import org.darkware.hero.people.race.Races;
-import sun.java2d.pipe.SpanShapeRenderer;
 
-import java.io.Serializable;
 import java.lang.reflect.Type;
-import java.util.Arrays;
 
 /**
  * @author jeff
