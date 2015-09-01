@@ -1,9 +1,6 @@
 package org.darkware.hero.demo;
 
-import org.darkware.hero.people.Attribute;
-import org.darkware.hero.people.Hero;
-import org.darkware.hero.people.HeroGenerator;
-import org.darkware.hero.people.HeroTemplate;
+import org.darkware.hero.people.*;
 import org.darkware.hero.people.race.HalfElfRace;
 import org.darkware.hero.people.race.Race;
 import org.darkware.hero.system.Serializer;
@@ -22,9 +19,7 @@ public class HeroGenDemo
 
         Hero hero = heroGen.generateHero(template);
 
-        System.out.println("Race: " + hero.getRace().getName());
-        System.out.println("Caste: " + hero.getCaste().getName());
-        System.out.println("Profession: " + hero.getProfession().getName());
+        HeroPrinter.print(hero);
 
         System.out.println();
 
