@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author ${user}
+ * @author jeff
  * @since 2015-08-12
  */
 public class CompoundAttributes implements Attributes
