@@ -2,6 +2,8 @@ package org.darkware.hero.people.profession;
 
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.base.StaticObjectLibrary;
+import org.darkware.hero.people.BaseGroupLibrary;
+import org.darkware.hero.people.race.Race;
 
 import java.util.Collection;
 
@@ -9,7 +11,7 @@ import java.util.Collection;
  * @author jeff
  * @since 2015-08-12
  */
-public class Professions extends StaticObjectLibrary<Profession>
+public class Professions extends BaseGroupLibrary<Profession>
 {
     private final static Professions global = new Professions();
 
@@ -21,6 +23,11 @@ public class Professions extends StaticObjectLibrary<Profession>
     public static Profession lookup(StaticId id)
     {
         return Professions.global.get(id);
+    }
+
+    public static Profession lookup(Class<?> professionClass)
+    {
+        return Professions.global.getByClass(professionClass);
     }
 
     public static Collection<Profession> all()
