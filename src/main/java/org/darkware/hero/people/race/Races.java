@@ -1,7 +1,8 @@
 package org.darkware.hero.people.race;
 
 import org.darkware.hero.base.StaticId;
-import org.darkware.hero.base.StaticObjectLibrary;
+import org.darkware.hero.people.BaseGroup;
+import org.darkware.hero.people.BaseGroupLibrary;
 
 import java.util.Collection;
 
@@ -9,7 +10,7 @@ import java.util.Collection;
  * @author jeff
  * @since 2015-08-12
  */
-public class Races extends StaticObjectLibrary<Race>
+public class Races extends BaseGroupLibrary<Race>
 {
     private final static Races global = new Races();
 
@@ -21,6 +22,11 @@ public class Races extends StaticObjectLibrary<Race>
     public static Race lookup(StaticId id)
     {
         return Races.global.get(id);
+    }
+
+    public static Race lookup(Class<?> raceClass)
+    {
+        return Races.global.getByClass(raceClass);
     }
 
     public static Collection<Race> all()
@@ -35,8 +41,6 @@ public class Races extends StaticObjectLibrary<Race>
 
     @Override protected void prepopulate()
     {
-        super.prepopulate();
-
         this.insert(new HumanRace());
         this.insert(new HalflingRace());
         this.insert(new HalfHalflingRace());

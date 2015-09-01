@@ -4,6 +4,7 @@ import org.darkware.hero.people.caste.Caste;
 import org.darkware.hero.people.health.Health;
 import org.darkware.hero.people.profession.Profession;
 import org.darkware.hero.people.race.Race;
+import org.darkware.hero.people.tags.Tags;
 
 /**
  * @author jeff
@@ -15,6 +16,7 @@ public class Hero extends Person
 
     private final CompoundAttributes activeAttributes;
     private final SimpleAttributes baseAttributes;
+    private final Tags tags;
 
     private final Health health;
 
@@ -24,6 +26,7 @@ public class Hero extends Person
 
         this.baseAttributes = new SimpleAttributes(40);
         this.activeAttributes = new CompoundAttributes();
+        this.tags = new Tags();
 
         this.activeAttributes.addComponent("base", this.baseAttributes);
 
@@ -50,6 +53,7 @@ public class Hero extends Person
         this.profession = profession;
 
         this.activeAttributes.addComponent("profession", profession.getAttributes());
+        this.tags.addSource("profession", profession.getTags());
     }
 
     @Override public void setCaste(final Caste caste)
@@ -57,6 +61,7 @@ public class Hero extends Person
         super.setCaste(caste);
 
         this.activeAttributes.addComponent("caste", caste.getAttributes());
+        this.tags.addSource("caste", caste.getTags());
     }
 
     @Override public void setRace(final Race race)
@@ -64,6 +69,7 @@ public class Hero extends Person
         super.setRace(race);
 
         this.activeAttributes.addComponent("race", race.getAttributes());
+        this.tags.addSource("race", race.getTags());
     }
 
     public Attributes getBaseAttributes()
@@ -74,5 +80,10 @@ public class Hero extends Person
     public Attributes getActiveAttributes()
     {
         return this.activeAttributes;
+    }
+
+    public Tags getTags()
+    {
+        return this.tags;
     }
 }

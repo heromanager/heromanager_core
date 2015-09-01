@@ -1,7 +1,9 @@
 package org.darkware.hero.people.caste;
 
+import org.darkware.hero.people.profession.AcolyteProfession;
 import org.darkware.hero.people.profession.Profession;
 import org.darkware.hero.people.race.Race;
+import org.darkware.hero.people.tags.Tag;
 
 import java.util.Set;
 
@@ -16,17 +18,17 @@ public class CursedCaste extends OutCaste
         super(id, name, rarity);
     }
 
-    @Override public Set<Race> getIncompatibleRaces()
+    @Override protected void declareIncompatibilities()
     {
-        Set<Race> prohibit = super.getIncompatibleRaces();
+        super.declareIncompatibilities();
 
-        return prohibit;
+        this.declareIncompatibility(AcolyteProfession.class);
     }
 
-    @Override public Set<Profession> getIncompatibleProfessions()
+    @Override protected void defineTags()
     {
-        Set<Profession> prohibit = super.getIncompatibleProfessions();
+        super.defineTags();
 
-        return prohibit;
+        this.getTags().add(Tag.CURSED);
     }
 }
