@@ -1,9 +1,12 @@
 package org.darkware.hero.people.race;
 
+import com.google.common.reflect.ClassPath;
+import org.darkware.hero.GameEnvironment;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.people.BaseGroup;
 import org.darkware.hero.people.BaseGroupLibrary;
 
+import java.rmi.AccessException;
 import java.util.Collection;
 
 /**
@@ -41,17 +44,28 @@ public class Races extends BaseGroupLibrary<Race>
 
     @Override protected void prepopulate()
     {
-        this.insert(new HumanRace());
-        this.insert(new HalflingRace());
-        this.insert(new HalfHalflingRace());
+        this.autoload();
+    }
 
-        this.insert(new HalfElfRace());
-        this.insert(new ElfRace());
+    protected void autoload()
+    {
+        for (Class<?> target : GameEnvironment.global.findAutoLoadTargets(this, "RACE"))
+        {
+            try
+            {
+                Race r = (Race)target.newInstance();
+                this.insert(r);
+            }
+            catch (Exception e)
+            {
+                //TOOD: Log the warning and move on
+                System.err.println("FAILED to instantiate auto-load target: " + target.getName());
+            }
+        }
+    }
 
-        this.insert(new DwarfRace());
-        this.insert(new DoubleDwarfRace());
-
-        this.insert(new HalfDragonRace());
-        this.insert(new HalfTrollRace());
+    @Override public void insert(final Race item)
+    {
+        super.insert(item);
     }
 }

@@ -1,6 +1,5 @@
 package org.darkware.hero.people.race;
 
-import org.darkware.hero.base.StaticId;
 import org.darkware.hero.people.Attribute;
 
 /**

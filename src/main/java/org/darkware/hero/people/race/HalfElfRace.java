@@ -1,11 +1,13 @@
 package org.darkware.hero.people.race;
 
+import org.darkware.hero.annotations.AutoLoad;
 import org.darkware.hero.people.Attribute;
 
 /**
  * @author ${user}
  * @since 2015-08-06
  */
+@AutoLoad(key = "RACE")
 public class HalfElfRace extends ElfenRace
 {
     public HalfElfRace()
