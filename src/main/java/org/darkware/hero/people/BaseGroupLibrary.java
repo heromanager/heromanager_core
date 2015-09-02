@@ -1,5 +1,6 @@
 package org.darkware.hero.people;
 
+import org.darkware.hero.GameEnvironment;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.base.StaticObjectLibrary;
 import org.darkware.hero.people.race.Race;
@@ -18,6 +19,30 @@ public abstract class BaseGroupLibrary<T extends BaseGroup> extends StaticObject
     public BaseGroupLibrary()
     {
         super();
+    }
+
+    @Override protected void prepopulate()
+    {
+        this.autoload();
+    }
+
+    protected abstract String getAutoLoadKey();
+
+    protected void autoload()
+    {
+        for (Class<?> target : GameEnvironment.global.findAutoLoadTargets(this, this.getAutoLoadKey()))
+        {
+            try
+            {
+                T r = (T)target.newInstance();
+                this.insert(r);
+            }
+            catch (Exception e)
+            {
+                //TOOD: Log the warning and move on
+                System.err.println("FAILED to instantiate auto-load target: " + target.getName());
+            }
+        }
     }
 
     @Override public void insert(final T item)

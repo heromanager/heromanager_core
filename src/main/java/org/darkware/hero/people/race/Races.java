@@ -42,9 +42,9 @@ public class Races extends BaseGroupLibrary<Race>
         super();
     }
 
-    @Override protected void prepopulate()
+    protected String getAutoLoadKey()
     {
-        this.autoload();
+        return "RACE";
     }
 
     protected void autoload()
