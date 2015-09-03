@@ -11,6 +11,7 @@ public enum LoadKey
     PROFESSION,
 
     MATERIAL,
+    MATERIALTYPE,
     MODEL,
     ENCHANTMENT,
 
