@@ -18,14 +18,19 @@ public class AutoLoader
 
     private static final ClassPath getClassPath()
     {
-        try
+        if (AutoLoader.classPath == null)
         {
-            return ClassPath.from(AutoLoader.class.getClassLoader());
+            try
+            {
+                AutoLoader.classPath = ClassPath.from(AutoLoader.class.getClassLoader());
+            }
+            catch (IOException e)
+            {
+                throw new IllegalStateException("Cannot load classpath for the base environment.");
+            }
         }
-        catch (IOException e)
-        {
-            throw new IllegalStateException("Cannot load classpath for the base environment.");
-        }
+
+        return AutoLoader.classPath;
     }
 
     public static Set<Class<?>> findAutoLoadTargets(LoadKey key)
