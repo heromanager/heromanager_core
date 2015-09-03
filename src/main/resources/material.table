@@ -1,0 +1,17 @@
+#ID     Name        Type    Rarity  Density Hardness    Value
+----------------------------------------------------------------
+IRON    Iron        METL    20      3       14          10
+STEL    Steel       METL    30      3.1     17          20
+GOLD    Gold        METL    8       10      11          80
+
+DMND    Diamond     CRYS    5       0.5     20          120
+QRTZ    Quartz      CRYS    9       1.3     16          22
+
+PINE    Pine        WOOD    15      0.2     5           4
+BLSA    Balsa       WOOD    6       0.1     2           2
+UOAK    Oak         WOOD    28      0.3     8           7
+
+LEAT    Leather     HIDE    34      0.1     4           16
+DHID    Dragonhide  HIDE    4       0.8     15          55
+
+ELKB    Elkbone     BONE    8       0.5     9           22
