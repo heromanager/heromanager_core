@@ -7,7 +7,7 @@ import org.darkware.hero.people.Attribute;
  * @author jeff
  * @since 2015-08-06
  */
-@AutoLoad(key = "RACE")
+@AutoLoad(key = LoadKey.RACE)
 public class DwarfRace extends SubterraneanRace
 {
     public DwarfRace()

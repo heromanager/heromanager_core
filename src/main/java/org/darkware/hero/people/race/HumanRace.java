@@ -1,12 +1,13 @@
 package org.darkware.hero.people.race;
 
 import org.darkware.hero.annotations.AutoLoad;
+import org.darkware.hero.annotations.LoadKey;
 
 /**
  * @author jeff
  * @since 2015-08-12
  */
-@AutoLoad(key = "RACE")
+@AutoLoad(key = LoadKey.RACE)
 public class HumanRace extends Race
 {
     public HumanRace()

@@ -13,5 +13,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface AutoLoad
 {
-    String key() default "GLOBAL";
+    LoadKey key() default LoadKey.UNDECLARED;
 }
