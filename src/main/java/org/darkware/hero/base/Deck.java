@@ -39,6 +39,20 @@ public class Deck<T>
     }
 
     /**
+     * Creates a complete copy of this Deck.
+     *
+     * @return A new Deck, with the same contents and ordering of this Deck.
+     */
+    public Deck<T> clone()
+    {
+        Deck<T> newDeck = new Deck<>();
+
+        newDeck.items.addAll(this.items);
+
+        return newDeck;
+    }
+
+    /**
      * Adds a number of items to the deck.
      *
      * @param items The items to add.
