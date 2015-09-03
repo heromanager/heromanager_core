@@ -1,10 +1,9 @@
 package org.darkware.hero.people;
 
-import org.darkware.hero.GameEnvironment;
+import org.darkware.hero.AutoLoader;
 import org.darkware.hero.annotations.LoadKey;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.base.StaticObjectLibrary;
-import org.darkware.hero.people.race.Race;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +30,7 @@ public abstract class BaseGroupLibrary<T extends BaseGroup> extends StaticObject
 
     protected final void autoload()
     {
-        for (Class<?> target : GameEnvironment.global.findAutoLoadTargets(this, this.getAutoLoadKey()))
+        for (Class<?> target : AutoLoader.findAutoLoadTargets(this, this.getAutoLoadKey()))
         {
             try
             {
