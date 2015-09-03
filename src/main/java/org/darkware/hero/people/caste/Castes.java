@@ -1,5 +1,6 @@
 package org.darkware.hero.people.caste;
 
+import org.darkware.hero.annotations.LoadKey;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.base.StaticObjectLibrary;
 import org.darkware.hero.people.BaseGroupLibrary;
@@ -40,8 +41,8 @@ public class Castes extends BaseGroupLibrary<Caste>
         super();
     }
 
-    @Override protected String getAutoLoadKey()
+    @Override protected LoadKey getAutoLoadKey()
     {
-        return "CASTE";
+        return LoadKey.CASTE;
     }
 }

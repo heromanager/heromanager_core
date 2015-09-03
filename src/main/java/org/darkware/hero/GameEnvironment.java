@@ -2,6 +2,7 @@ package org.darkware.hero;
 
 import com.google.common.reflect.ClassPath;
 import org.darkware.hero.annotations.AutoLoad;
+import org.darkware.hero.annotations.LoadKey;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -31,17 +32,17 @@ public class GameEnvironment
         }
     }
 
-    public Set<Class<?>> findAutoLoadTargets(String key)
+    public Set<Class<?>> findAutoLoadTargets(LoadKey key)
     {
         return this.findAutoLoadTargets(this, key);
     }
 
-    public Set<Class<?>> findAutoLoadTargets(Object example, String key)
+    public Set<Class<?>> findAutoLoadTargets(Object example, LoadKey key)
     {
         return this.findAutoLoadTargets(example.getClass().getPackage().getName(), key);
     }
 
-    public Set<Class<?>> findAutoLoadTargets(String basePackage, String key)
+    public Set<Class<?>> findAutoLoadTargets(String basePackage, LoadKey key)
     {
         Set<Class<?>> targets = new HashSet<>();
 
@@ -49,12 +50,9 @@ public class GameEnvironment
         {
             Class<?> targetClass = info.load();
             AutoLoad autoLoadConfig = targetClass.getAnnotation(AutoLoad.class);
-            if (autoLoadConfig != null)
+            if (autoLoadConfig != null && key.equals(autoLoadConfig.key()))
             {
-                if (key.equals(autoLoadConfig.key()))
-                {
-                    targets.add(targetClass);
-                }
+                targets.add(targetClass);
             }
         }
 

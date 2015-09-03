@@ -2,6 +2,7 @@ package org.darkware.hero.people.race;
 
 import com.google.common.reflect.ClassPath;
 import org.darkware.hero.GameEnvironment;
+import org.darkware.hero.annotations.LoadKey;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.people.BaseGroup;
 import org.darkware.hero.people.BaseGroupLibrary;
@@ -42,26 +43,9 @@ public class Races extends BaseGroupLibrary<Race>
         super();
     }
 
-    protected String getAutoLoadKey()
+    protected LoadKey getAutoLoadKey()
     {
-        return "RACE";
-    }
-
-    protected void autoload()
-    {
-        for (Class<?> target : GameEnvironment.global.findAutoLoadTargets(this, "RACE"))
-        {
-            try
-            {
-                Race r = (Race)target.newInstance();
-                this.insert(r);
-            }
-            catch (Exception e)
-            {
-                //TOOD: Log the warning and move on
-                System.err.println("FAILED to instantiate auto-load target: " + target.getName());
-            }
-        }
+        return LoadKey.RACE;
     }
 
     @Override public void insert(final Race item)

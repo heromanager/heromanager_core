@@ -1,5 +1,6 @@
 package org.darkware.hero.people.profession;
 
+import org.darkware.hero.annotations.LoadKey;
 import org.darkware.hero.base.StaticId;
 import org.darkware.hero.base.StaticObjectLibrary;
 import org.darkware.hero.people.BaseGroupLibrary;
@@ -59,8 +60,8 @@ public class Professions extends BaseGroupLibrary<Profession>
         this.insert(new AssassinProfession());
     }
 
-    @Override protected String getAutoLoadKey()
+    @Override protected LoadKey getAutoLoadKey()
     {
-        return "PROFESSION";
+        return LoadKey.PROFESSION;
     }
 }
