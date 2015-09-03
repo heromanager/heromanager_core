@@ -58,4 +58,9 @@ public class Professions extends BaseGroupLibrary<Profession>
         this.insert(new NinjaProfession());
         this.insert(new AssassinProfession());
     }
+
+    @Override protected String getAutoLoadKey()
+    {
+        return "PROFESSION";
+    }
 }
