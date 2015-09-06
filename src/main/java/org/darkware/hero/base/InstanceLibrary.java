@@ -1,7 +1,9 @@
 package org.darkware.hero.base;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author jeff
@@ -31,6 +33,11 @@ public class InstanceLibrary<T extends StaticObject>
     {
         this.instances.put(item.getClass(), item);
         this.idMap.put(item.getId(), item.getClass());
+    }
+
+    public final Set<T> all()
+    {
+        return new HashSet<>(this.instances.values());
     }
 
     public final T get(Class<?> itemClass)
