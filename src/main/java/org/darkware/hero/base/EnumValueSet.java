@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * @author ${user}
+ * @author jeff
  * @since 2015-08-07
  */
 public class EnumValueSet<T extends Enum<T>>
@@ -66,10 +66,7 @@ public class EnumValueSet<T extends Enum<T>>
 
     public final void resetAll()
     {
-        for (T item : this.allFields())
-        {
-            this.reset(item);
-        }
+        this.allFields().forEach(this::reset);
     }
 
     public final Set<T> allFields()
