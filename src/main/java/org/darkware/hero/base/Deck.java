@@ -23,6 +23,13 @@ public class Deck<T>
         this.access = new ReentrantReadWriteLock(true);
     }
 
+    public Deck(Collection<T> items)
+    {
+        this();
+
+        this.items.addAll(items);
+    }
+
     /**
      * Fetches the current size of the deck.
      *
@@ -121,23 +128,65 @@ public class Deck<T>
      */
     public void filter(DeckFilter<T> ... filters)
     {
+        //OPTIMIZE: Use a filter cache to reduce filter checks of duplicated items.
+
         this.access.writeLock().lock();
         try
         {
-            Iterator<T> iter = this.items.iterator();
-            while (iter.hasNext())
+            Iterator<T> i = this.items.iterator();
+            while (i.hasNext())
             {
-                for (DeckFilter<T> filter : filters)
-                {
-                    if (!filter.allowItem(iter.next()))
-                    {
-                        iter.remove();
-                        break;
-                    }
-                }
+                if (!this.passFilters(i.next(), filters)) i.remove();
             }
         }
         finally { this.access.writeLock().unlock(); }
+    }
+
+    /**
+     * Creates a copy of this deck, consisting of items filtered through the
+     * supplied filters.
+     *
+     * @param filters The filters to pass all items through
+     * @return A new Deck.
+     */
+    public Deck<T> filteredCopy(DeckFilter<T> ... filters)
+    {
+        //OPTIMIZE: Use a filter cache to reduce filter checks on duplicated items.
+
+        Deck<T> copy = new Deck<>();
+
+        this.access.writeLock().lock();
+        try
+        {
+            this.items.stream().filter(item -> this.passFilters(item, filters)).forEach(copy::add);
+        }
+        finally { this.access.writeLock().unlock(); }
+
+        return copy;
+    }
+
+    /**
+     * Checks an item against multiple filters. The result is the boolean conjunction of the result
+     * of each filter. That is: if any result is false, then the composite result is false. The result
+     * is true if and only if all results are true. The examination may short circuit as soon as a
+     * single allowance check fails.
+     *
+     * @param item The item to check.
+     * @param filters An array of filters to examine.
+     * @return <code>true</code> if all filters allow the item, <code>false</code> if one or more filters
+     * would exclude the item.
+     */
+    private boolean passFilters(T item, DeckFilter<T> ... filters)
+    {
+        for (DeckFilter<T> filter : filters)
+        {
+            if (!filter.allowItem(item))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
