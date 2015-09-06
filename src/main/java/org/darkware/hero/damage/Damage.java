@@ -1,8 +1,7 @@
 package org.darkware.hero.damage;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Set;
+import org.darkware.hero.base.EnumFactorSet;
+import org.darkware.hero.base.EnumValueSet;
 
 /**
  * @author ${user}
@@ -10,42 +9,50 @@ import java.util.Set;
  */
 public class Damage
 {
-    private final int[] damages;
-    private final double[] amplifiers;
+    private final EnumValueSet<DamageType> damages;
+    private final EnumFactorSet<DamageType> amplifiers;
 
     public Damage()
     {
         super();
 
-        this.damages = new int[DamageType.count];
-        Arrays.fill(this.damages, 0);
-        this.amplifiers = new double[DamageType.count];
-        Arrays.fill(this.amplifiers, 1.0);
+        this.damages = new EnumValueSet<>(0, DamageType.class);
+        this.amplifiers = new EnumFactorSet<>(1.0, DamageType.class);
     }
 
     public void add(DamageType type, int amount)
     {
-        this.damages[type.ordinal()] += amount;
+        this.damages.add(type, amount);
     }
 
     public void add(Damage dmg)
     {
         for (DamageType type : DamageType.values())
         {
-            this.add(type, dmg.damages[type.ordinal()]);
-            this.amplify(type, dmg.amplifiers[type.ordinal()]);
+            this.add(type, dmg.getBase(type));
+            this.amplify(type, dmg.getFactor(type));
         }
     }
 
     public void amplify(DamageType type, double factor)
     {
-        this.amplifiers[type.ordinal()] *= factor;
+        this.amplifiers.apply(type, factor);
+    }
+
+    public int getBase(DamageType type)
+    {
+        return this.damages.get(type);
+    }
+
+    public double getFactor(DamageType type)
+    {
+        return this.amplifiers.get(type);
     }
 
     public double get(DamageType type)
     {
-        int dmg = this.damages[type.ordinal()];
-        double amp = this.amplifiers[type.ordinal()];
+        int dmg = this.damages.get(type);
+        double amp = this.getFactor(type);
 
         return dmg * amp;
     }
