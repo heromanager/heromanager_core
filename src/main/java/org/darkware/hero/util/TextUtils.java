@@ -40,4 +40,9 @@ public class TextUtils
 
         return buf.toString();
     }
+
+    public static String fromConst(String constName)
+    {
+        return constName.toLowerCase().replace('_', ' ');
+    }
 }
