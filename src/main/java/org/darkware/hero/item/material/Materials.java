@@ -1,12 +1,17 @@
 package org.darkware.hero.item.material;
 
+import org.darkware.hero.base.Deck;
 import org.darkware.hero.base.InstanceLibrary;
+import org.darkware.hero.item.materialtype.MaterialType;
 import org.darkware.hero.item.materialtype.MaterialTypes;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author jeff
@@ -66,7 +71,6 @@ public class Materials extends InstanceLibrary<Material>
         {
             //TODO Report the error
         }
-
     }
 
     private void add(MaterialBuilder builder)
@@ -74,5 +78,21 @@ public class Materials extends InstanceLibrary<Material>
         Material mat = builder.build();
         System.out.println("Material: Added " + mat.getName() + " [" + mat.getId() + "]");
         this.add(mat);
+    }
+
+    public Set<Material> forType(MaterialType type)
+    {
+        Set<Material> materials = this.all().stream().filter(mat -> type == mat.getType()).collect(Collectors.toSet());
+
+        return materials;
+    }
+
+    public Deck<Material> typeDeck(MaterialType type)
+    {
+        Deck<Material> deck = new Deck<>();
+
+        this.all().stream().filter(mat -> type == mat.getType()).forEach(mat -> deck.add(mat, mat.getRarity()));
+
+        return deck;
     }
 }
