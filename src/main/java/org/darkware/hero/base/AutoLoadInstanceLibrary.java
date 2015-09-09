@@ -9,26 +9,27 @@ import org.darkware.hero.annotations.LoadKey;
  */
 public abstract class AutoLoadInstanceLibrary<T extends StaticObject> extends InstanceLibrary<T>
 {
-    private final LoadKey autoLoadKey;
-
-    public AutoLoadInstanceLibrary(LoadKey key)
+    public AutoLoadInstanceLibrary()
     {
         super();
-
-        this.autoLoadKey = key;
     }
+
+    protected abstract LoadKey getAutoLoadKey();
 
     @Override protected void populate()
     {
         super.populate();
+
+        this.autoload();
     }
 
     protected final void autoload()
     {
-        for (Class<?> target : AutoLoader.findAutoLoadTargets(this, this.autoLoadKey))
+        for (Class<?> target : AutoLoader.findAutoLoadTargets(this, this.getAutoLoadKey()))
         {
             try
             {
+                System.out.println("AUTOLOAD[" + this.getAutoLoadKey().name() + "] => " + target.getName());
                 T r = (T)target.newInstance();
                 this.add(r);
             }

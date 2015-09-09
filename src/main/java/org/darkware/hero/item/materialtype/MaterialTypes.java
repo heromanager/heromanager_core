@@ -13,6 +13,11 @@ public class MaterialTypes extends AutoLoadInstanceLibrary<MaterialType>
 
     public MaterialTypes()
     {
-        super(LoadKey.MATERIALTYPE);
+        super();
+    }
+
+    @Override protected LoadKey getAutoLoadKey()
+    {
+        return LoadKey.MATERIALTYPE;
     }
 }
