@@ -29,7 +29,6 @@ public abstract class AutoLoadInstanceLibrary<T extends StaticObject> extends In
         {
             try
             {
-                System.out.println("AUTOLOAD[" + this.getAutoLoadKey().name() + "] => " + target.getName());
                 T r = (T)target.newInstance();
                 this.add(r);
             }
