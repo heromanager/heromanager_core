@@ -45,15 +45,19 @@ public class AutoLoader
 
     public static Set<Class<?>> findAutoLoadTargets(String basePackage, LoadKey key)
     {
+        if (key == null) throw new IllegalArgumentException("Attempted to autoload with a null load key.");
         Set<Class<?>> targets = new HashSet<>();
 
         for (ClassPath.ClassInfo info : AutoLoader.getClassPath().getTopLevelClassesRecursive(basePackage))
         {
             Class<?> targetClass = info.load();
             AutoLoad autoLoadConfig = targetClass.getAnnotation(AutoLoad.class);
-            if (autoLoadConfig != null && key.equals(autoLoadConfig.key()))
+            if (autoLoadConfig != null)
             {
-                targets.add(targetClass);
+                if (key.equals(autoLoadConfig.key()))
+                {
+                    targets.add(targetClass);
+                }
             }
         }
 
