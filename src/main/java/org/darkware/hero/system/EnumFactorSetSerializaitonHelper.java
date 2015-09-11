@@ -6,7 +6,7 @@ import org.darkware.hero.base.EnumFactorSet;
 import java.lang.reflect.Type;
 
 /**
- * @author ${user}
+ * @author jeff
  * @since 2015-08-07
  */
 public class EnumFactorSetSerializaitonHelper<T extends Enum<T>> implements JsonSerializer<EnumFactorSet<T>>, JsonDeserializer<EnumFactorSet<T>>
