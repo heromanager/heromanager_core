@@ -12,6 +12,7 @@ public enum Skill
     AXE,
     CLUB,
     EXOTIC_WEAPONS,
+    STAFF,
 
     LIGHT_ARMOR,
     HEAVY_ARMOR,
@@ -28,6 +29,11 @@ public enum Skill
     HUNTING,
 
     NONE;
+
+    /**
+     * The maximum allowed value for skills.
+     */
+    public static final int MAX_VALUE = 250;
 
     public boolean trainable()
     {
