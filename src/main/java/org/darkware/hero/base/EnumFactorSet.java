@@ -43,12 +43,25 @@ public class EnumFactorSet<T extends Enum<T>>
     public final void apply(T item, double factor)
     {
         int idx = item.ordinal();
-        this.factors[idx] *= factor;
+        this.factors[idx] = this.modifyValue(this.factors[idx], factor);
+    }
+
+    protected double modifyValue(double currentValue, double newValue)
+    {
+        return currentValue * newValue;
     }
 
     public final void reset(T item)
     {
         this.set(item, this.defaultValue);
+    }
+
+    public final void copyTo(EnumFactorSet<T> copy)
+    {
+        for (T item : enumClass.getEnumConstants())
+        {
+            copy.set(item, this.get(item));
+        }
     }
 
     public final Set<T> allFields()
