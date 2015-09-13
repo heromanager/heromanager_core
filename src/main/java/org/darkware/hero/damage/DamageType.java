@@ -1,7 +1,7 @@
 package org.darkware.hero.damage;
 
 /**
- * @author ${user}
+ * @author jeff
  * @since 2015-08-04
  */
 public enum DamageType
@@ -18,7 +18,9 @@ public enum DamageType
     POISON,
     SOUL,
 
-    SHAME;
+    SHAME,
+
+    NONE;
 
     public static final int count = DamageType.values().length;
 
