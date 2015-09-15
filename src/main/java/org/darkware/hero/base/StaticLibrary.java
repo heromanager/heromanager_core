@@ -29,5 +29,5 @@ public interface StaticLibrary<T extends StaticObject> extends Library<T>
      * @param item The item to remove.
      * @return The item that was removed.
      */
-    public T remove(final T item);
+    T remove(final T item);
 }
