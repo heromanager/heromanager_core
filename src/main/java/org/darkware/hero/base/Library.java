@@ -49,6 +49,15 @@ public interface Library<T>
     T get(StaticId key);
 
     /**
+     * Fetches an item from the library which was stored under the given key.
+     *
+     * @param key The key which identifies the item to fetch.
+     * @return The item stored under the given key, or <code>null</code> if the key was
+     * not found.
+     */
+    T get(String key);
+
+    /**
      * Removes the item associated with the given key from the library. This has no effect if
      * there are no items associated with the key.
      *
