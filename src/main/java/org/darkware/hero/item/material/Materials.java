@@ -60,10 +60,7 @@ public class Materials extends StaticObjectLibrary<Material>
                     builder.setHardness(Double.parseDouble(parts[5]));
                     builder.setValue(Double.parseDouble(parts[6]));
 
-                    Material built = builder.build();
                     this.add(builder);
-                    System.out.println("# Loaded material: " + built.getName());
-                    System.out.println("# Material count: " + this.size());
                 }
                 catch (NumberFormatException e)
                 {
@@ -80,7 +77,6 @@ public class Materials extends StaticObjectLibrary<Material>
     private void add(MaterialBuilder builder)
     {
         Material mat = builder.build();
-        System.out.println("Material: Added " + mat.getName() + " [" + mat.getId() + "]");
         this.insert(mat);
     }
 

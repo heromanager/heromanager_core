@@ -32,7 +32,6 @@ public class ModelSerializationHelper implements JsonSerializer<Model>, JsonDese
 
         String id = json.get("id").getAsString();
         String name = json.get("name").getAsString();
-        System.out.println("JSON[Model]: " + id + "=" + name);
 
         Model model = new Model(id, name);
 

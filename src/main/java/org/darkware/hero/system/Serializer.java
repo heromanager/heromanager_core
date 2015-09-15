@@ -127,14 +127,11 @@ public class Serializer
 
     public <T> T fromJson(Class<T> tClass, String data)
     {
-        System.out.println("Deserialize string to class: " + tClass.getCanonicalName());
         return this.gson.fromJson(data, tClass);
     }
 
     public <T> T fromJson(Type type, URL data)
     {
-        System.out.println("Deserialize string to class: " + type.getTypeName());
-
         try
         {
             //TODO: Maybe read from a buffer instead?
