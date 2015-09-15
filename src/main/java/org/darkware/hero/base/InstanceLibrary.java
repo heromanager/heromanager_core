@@ -75,4 +75,9 @@ public class InstanceLibrary<T extends StaticObject>
         if (id == null) return false;
         return this.has(new StaticId(id));
     }
+
+    public final int size()
+    {
+        return this.instances.size();
+    }
 }
