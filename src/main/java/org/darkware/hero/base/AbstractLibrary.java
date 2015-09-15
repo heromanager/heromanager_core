@@ -74,6 +74,11 @@ public abstract class AbstractLibrary<T> implements Library<T>
         }
     }
 
+    public final T get(final String key)
+    {
+        return this.get(new StaticId(key));
+    }
+
     public final Collection<T> getAll()
     {
         synchronized (this.storage)
