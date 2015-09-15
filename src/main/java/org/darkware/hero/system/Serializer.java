@@ -3,7 +3,11 @@ package org.darkware.hero.system;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import org.darkware.hero.base.StaticId;
+import org.darkware.hero.damage.Attack;
+import org.darkware.hero.damage.AttackSerializationHelper;
+import org.darkware.hero.damage.DamageType;
 import org.darkware.hero.item.materialtype.MaterialType;
 import org.darkware.hero.item.model.Model;
 import org.darkware.hero.item.model.ModelSerializationHelper;
@@ -52,6 +56,7 @@ public class Serializer
         builder.registerTypeAdapter(CompoundAttributes.class, new AttributesSerializationHelper());
         builder.registerTypeAdapter(MaterialType.class, new MaterialTypeSerializationHelper());
         builder.registerTypeAdapter(Model.class, new ModelSerializationHelper());
+        builder.registerTypeAdapter(Attack.class, new AttackSerializationHelper());
 
         builder.registerTypeHierarchyAdapter(BaseGroup.class, new JsonSerializer<BaseGroup>()
         {

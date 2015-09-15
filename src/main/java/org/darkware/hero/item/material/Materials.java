@@ -2,6 +2,7 @@ package org.darkware.hero.item.material;
 
 import org.darkware.hero.base.Deck;
 import org.darkware.hero.base.InstanceLibrary;
+import org.darkware.hero.base.StaticObjectLibrary;
 import org.darkware.hero.item.materialtype.MaterialType;
 import org.darkware.hero.item.materialtype.MaterialTypes;
 
@@ -17,19 +18,19 @@ import java.util.stream.Collectors;
  * @author jeff
  * @since 2015-09-02
  */
-public class Materials extends InstanceLibrary<Material>
+public class Materials extends StaticObjectLibrary<Material>
 {
     public static Materials global = new Materials();
 
-    protected Materials()
+    public Materials()
     {
         super();
         System.out.println("Initializing materials.");
     }
 
-    @Override protected void populate()
+    @Override protected void prepopulate()
     {
-        super.populate();
+        super.prepopulate();
 
         this.loadFromTable();
     }
@@ -59,7 +60,10 @@ public class Materials extends InstanceLibrary<Material>
                     builder.setHardness(Double.parseDouble(parts[5]));
                     builder.setValue(Double.parseDouble(parts[6]));
 
+                    Material built = builder.build();
                     this.add(builder);
+                    System.out.println("# Loaded material: " + built.getName());
+                    System.out.println("# Material count: " + this.size());
                 }
                 catch (NumberFormatException e)
                 {
@@ -77,12 +81,12 @@ public class Materials extends InstanceLibrary<Material>
     {
         Material mat = builder.build();
         System.out.println("Material: Added " + mat.getName() + " [" + mat.getId() + "]");
-        this.add(mat);
+        this.insert(mat);
     }
 
     public Set<Material> forType(MaterialType type)
     {
-        Set<Material> materials = this.all().stream().filter(mat -> type == mat.getType()).collect(Collectors.toSet());
+        Set<Material> materials = this.getAll().stream().filter(mat -> type == mat.getType()).collect(Collectors.toSet());
 
         return materials;
     }
@@ -91,7 +95,7 @@ public class Materials extends InstanceLibrary<Material>
     {
         Deck<Material> deck = new Deck<>();
 
-        this.all().stream().filter(mat -> type == mat.getType()).forEach(mat -> deck.add(mat, mat.getRarity()));
+        this.getAll().stream().filter(mat -> type == mat.getType()).forEach(mat -> deck.add(mat, mat.getRarity()));
 
         return deck;
     }

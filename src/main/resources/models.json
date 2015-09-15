@@ -1,0 +1,142 @@
+[
+  {
+    "id": "LSWD",
+    "name": "Longsword",
+
+    "rarity": 12,
+    "slot": "WEAPON",
+
+    "materialType": "METL",
+    "volume": 3.0,
+    "valueFactor": 1.2,
+
+    "skill": "SWORD",
+    "minSkill": 25,
+    "skillBonus": 3,
+
+    "attack": {
+      "type": "SLASHING",
+      "minDamage": 2,
+      "maxDamage": 12,
+      "secondary": "PIERCING",
+      "secondaryPortion": 0.2
+    },
+
+    "smithingDifficulty": 10
+  },
+
+  {
+    "id": "SABR",
+    "name": "Saber",
+
+    "inherit": "LSWD",
+
+    "volume": 2.8,
+    "attack":
+    {
+      "minDamage": 4,
+      "secondaryPortion": 0.1
+    },
+
+    "smithingDifficulty": 14
+  },
+
+  {
+    "id": "SSWD",
+    "name": "Shortsword",
+
+    "inherit": "LSWD",
+
+    "volume": 2.0,
+    "valueFactor": 1.1,
+
+    "minSkill": 1,
+
+    "attack":
+    {
+      "minDamage": 1,
+      "maxDamage": 8
+    },
+
+    "smithingDifficulty": 8
+  },
+
+  { 
+    "id": "SPUN",
+    "name": "Spoon",
+
+    "rarity": 8,
+    "slot": "WEAPON",
+
+    "materialType": "METL",
+    "volume": 0.4,
+
+    "skill": "COOKING",
+    "minSkill": 1,
+    "skillBonus": 5.0,
+
+    "attack": {
+      "type": "BLUNT",
+      "minDamage": 1,
+      "maxDamage": 4
+    },
+
+    "smithingDifficulty": 2
+  },
+
+  {
+    "id": "TUNC",
+    "name": "Tunic",
+
+    "rarity": 12,
+    "slot": "CHEST",
+
+    "materialType": "CLTH",
+    "volume": 1.0,
+    "valueFactor": 0.5,
+
+    "skill": "LIGHT_ARMOR",
+    "minSkill": 1,
+    "skillBonus": 1.2,
+
+    "defense":
+    {
+      "SLASHING": 0.04,
+      "PIERCING": 0.02,
+      "BLUNT": 0.01,
+
+      "FIRE": -0.02
+    },
+
+    "smithingDifficulty": 4
+  },
+
+  {
+    "id": "CHNM",
+    "name": "Chainamil",
+
+    "inherit": "TUNC",
+
+    "rarity": 18,
+
+    "materialType": "METL",
+    "volume": 2.4,
+    "valueFactor": 2.2,
+
+    "minSkill": 10,
+    "skillBonus": 1.8,
+
+
+
+    "defense":
+    {
+      "SLASHING": 0.10,
+      "PIERCING": 0.07,
+      "BLUNT": 0.02,
+
+      "FIRE": 0.01
+    },
+
+    "smithingDifficulty": 22
+  }
+]

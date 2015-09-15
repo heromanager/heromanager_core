@@ -1,17 +1,42 @@
 #ID     Name        Type    Rarity  Density Hardness    Value
 ----------------------------------------------------------------
 IRON    Iron        METL    20      3       14          10
-STEL    Steel       METL    30      3.1     17          20
-GOLD    Gold        METL    8       10      11          80
+STEL    Steel       METL    30      8       17          20
+COPR    Copper      METL    25      7       14          18
+SILV    Silver      METL    10      10      13          60
+BRNZ    Bronze      METL    19      14      14          22
+STAN    Tin         METL    17      7.3     15          21
+GOLD    Gold        METL    8       18      11          80
+URAN    Uranium     METL    3       17      15          95
+PLUT    Plutonium   METL    2       15      14          120
+METR    Meteorite   METL    3       18      18          140
 
-DMND    Diamond     CRYS    5       0.5     20          120
+DMND    Diamond     CRYS    5       0.5     14          120
 QRTZ    Quartz      CRYS    9       1.3     16          22
+FLUR    Fluorite    CRYS    14      1.3     12          12
+TOPZ    Topaz       CRYS    8       1.4     15          105
+SAPH    Sapphire    CRYS    6       1.4     15          92
 
 PINE    Pine        WOOD    15      0.2     5           4
 BLSA    Balsa       WOOD    6       0.1     2           2
-UOAK    Oak         WOOD    28      0.3     8           7
+UOAK    Oak         WOOD    28      0.3     8           14
+BRCH    Birch       WOOD    22      0.2     7           16
+MAPL    Maple       WOOD    18      0.3     9           19
+IRWD    Ironwood    WOOD    8       1.2     12          52
+STWD    Steelwood   WOOD    5       1.4     14          67
+ELMW    Elm         WOOD    18      0.3     8           18
+YEWW    Yew         WOOD    12      0.4     9.5         28
+EBNY    Ebony       WOOD    4       0.8     10          33
+BAMB    Bamboo      WOOD    8       0.4     8           22
 
 LEAT    Leather     HIDE    34      0.1     4           16
 DHID    Dragonhide  HIDE    4       0.8     15          55
+SHEP    Sheepskin   HIDE    18      0.3     2           23
+GOAT    Goathide    HIDE    15      0.22    3.7         21
 
 ELKB    Elkbone     BONE    8       0.5     9           22
+WHLB    Whalebone   BONE    5       0.4     11          33
+COWB    Cowbone     BONE    18      0.3     7           12
+
+WOOL    Wool        CLTH    19      0.2     3           16
+LNEN    Linen       CLTH    10      0.17    2.7         28
