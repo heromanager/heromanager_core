@@ -1,0 +1,63 @@
+[
+  {
+    "id": "LSWD",
+    "name": "Longsword",
+
+    "rarity": 12,
+    "slot": "WEAPON",
+
+    "materialType": "METL",
+    "volume": 3.0,
+    "valueFactor": 1.2,
+
+    "skill": "SWORD",
+    "minSkill": 25,
+    "skillBonus": 3,
+
+    "attack": {
+      "type": "SLASHING",
+      "minDamage": 2,
+      "maxDamage": 12,
+      "secondary": "PIERCING",
+      "secondaryPortion": 0.2
+    },
+
+    "smithingDifficulty": 10
+  },
+
+  {
+    "id": "SABR",
+    "name": "Saber",
+
+    "inherit": "LSWD",
+
+    "volume": 2.8,
+    "attack":
+    {
+      "minDamage": 4,
+      "secondaryPortion": 0.1
+    },
+
+    "smithingDifficulty": 14
+  },
+
+  {
+    "id": "SSWD",
+    "name": "Shortsword",
+
+    "inherit": "LSWD",
+
+    "volume": 2.0,
+    "valueFactor": 1.1,
+
+    "minSkill": 1,
+
+    "attack":
+    {
+      "minDamage": 1,
+      "maxDamage": 8
+    },
+
+    "smithingDifficulty": 8
+  }
+]

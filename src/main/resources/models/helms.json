@@ -1,0 +1,28 @@
+[
+  {
+    "id": "HCAP",
+    "name": "Cap",
+
+    "rarity": 12,
+    "slot": "HEAD",
+
+    "materialType": "HIDE",
+    "volume": 1.2,
+    "valueFactor": 0.4,
+
+    "skill": "LIGHT_ARMOR",
+    "minSkill": 1,
+    "skillBonus": 1.2,
+
+    "defense":
+    {
+      "SLASHING": 0.003,
+      "PIERCING": 0.0,
+      "BLUNT": 0.04,
+
+      "COLD": 0.03
+    },
+
+    "smithingDifficulty": 1
+  }
+]

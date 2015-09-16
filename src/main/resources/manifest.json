@@ -1,0 +1,13 @@
+{
+  "materials":
+          [
+            "materials/material.table"
+          ],
+  "models":
+          [
+            "models/swords.json",
+            "models/clubs.json",
+            "models/helms.json",
+            "models/armor.json"
+          ]
+}

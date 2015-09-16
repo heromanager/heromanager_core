@@ -1,0 +1,47 @@
+[
+  {
+    "id": "CLUB",
+    "name": "Club",
+
+    "rarity": 8,
+    "slot": "WEAPON",
+
+    "materialType": "WOOD",
+    "volume": 0.4,
+
+    "skill": "COOKING",
+    "minSkill": 1,
+    "skillBonus": 5.0,
+
+    "attack": {
+      "type": "BLUNT",
+      "minDamage": 1,
+      "maxDamage": 4
+    },
+
+    "smithingDifficulty": 2
+  },
+
+  { 
+    "id": "SPUN",
+    "name": "Spoon",
+
+    "rarity": 8,
+    "slot": "WEAPON",
+
+    "materialType": "METL",
+    "volume": 0.4,
+
+    "skill": "COOKING",
+    "minSkill": 1,
+    "skillBonus": 5.0,
+
+    "attack": {
+      "type": "BLUNT",
+      "minDamage": 1,
+      "maxDamage": 4
+    },
+
+    "smithingDifficulty": 2
+  }
+]

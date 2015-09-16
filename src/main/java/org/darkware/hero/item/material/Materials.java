@@ -1,5 +1,6 @@
 package org.darkware.hero.item.material;
 
+import org.darkware.hero.GameEnvironment;
 import org.darkware.hero.base.Deck;
 import org.darkware.hero.base.InstanceLibrary;
 import org.darkware.hero.base.StaticObjectLibrary;
@@ -25,19 +26,16 @@ public class Materials extends StaticObjectLibrary<Material>
     public Materials()
     {
         super();
-        System.out.println("Initializing materials.");
     }
 
-    @Override protected void prepopulate()
+    public void load(GameEnvironment environment)
     {
-        super.prepopulate();
-
-        this.loadFromTable();
+        environment.getManifest().getResources("materials").forEach(this::loadFromTable);
     }
 
-    private void loadFromTable()
+    private void loadFromTable(String resourcePath)
     {
-        InputStream tableResource = this.getClass().getClassLoader().getResourceAsStream("material.table");
+        InputStream tableResource = this.getClass().getClassLoader().getResourceAsStream(resourcePath);
         BufferedReader tableReader = new BufferedReader(new InputStreamReader(tableResource));
 
         String line = null;

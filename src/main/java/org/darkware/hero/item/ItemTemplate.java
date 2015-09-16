@@ -23,13 +23,15 @@ public class ItemTemplate
 
     private int targetRarity;
     private int targetSize;
-    private int targetWeight;
+    private double targetWeight;
 
     public ItemTemplate()
     {
         super();
 
         this.targetRarity = 0;
+        this.targetSize = 1;
+        this.targetWeight = 0.0;
     }
 
     public Item generate()

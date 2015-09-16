@@ -1,12 +1,11 @@
 package org.darkware.hero.item.model;
 
-import com.google.common.io.Resources;
 import com.google.common.reflect.TypeToken;
+import org.darkware.hero.GameEnvironment;
 import org.darkware.hero.base.StaticObjectLibrary;
-import org.darkware.hero.item.materialtype.MaterialTypes;
-import org.darkware.hero.item.materialtype.Metal;
 import org.darkware.hero.system.Serializer;
 
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -20,14 +19,15 @@ public class Models extends StaticObjectLibrary<Model>
         super();
     }
 
-    @Override protected void prepopulate()
+    public void load(GameEnvironment environment)
     {
-        super.prepopulate();
+        if (environment == null) throw new IllegalStateException("GameEnvironment is not initialized.");
+        List<URL> resources = environment.getManifest().getResourceURLs("models");
+        for (URL resource : resources)
+        {
+            List<Model> loaded = Serializer.global().fromJson(new TypeToken<List<Model>>(){}.getType(), resource);
 
-        //TODO: Handle the serializer cache
-        List<Model> loaded = Serializer.global().fromJson(new TypeToken<List<Model>>() {}.getType(),
-                                                          Resources.getResource("models.json"));
-
-        loaded.forEach(this::insert);
+            loaded.forEach(this::insert);
+        }
     }
 }
