@@ -1,6 +1,6 @@
 package org.darkware.hero.item;
 
-import org.darkware.hero.item.enchantment.Enchantment;
+import org.darkware.hero.item.inscribe.Inscription;
 import org.darkware.hero.item.material.Material;
 import org.darkware.hero.item.model.Model;
 
@@ -12,7 +12,7 @@ public class Item
 {
     private Material material;
     private Model model;
-    private Enchantment enchantment;
+    private Inscription inscription;
 
     public Item()
     {
@@ -27,11 +27,11 @@ public class Item
         this.setModel(model);
     }
 
-    public Item(Material material, Model model, Enchantment enchantment)
+    public Item(Material material, Model model, Inscription inscription)
     {
         this(material, model);
 
-        this.setEnchantment(enchantment);
+        this.setInscription(inscription);
     }
 
     public int getValue()
@@ -73,14 +73,14 @@ public class Item
         this.model = model;
     }
 
-    public Enchantment getEnchantment()
+    public Inscription getInscription()
     {
-        return enchantment;
+        return inscription;
     }
 
-    protected void setEnchantment(final Enchantment enchantment)
+    protected void setInscription(final Inscription inscription)
     {
-        this.enchantment = enchantment;
+        this.inscription = inscription;
     }
 
     public String getName()
