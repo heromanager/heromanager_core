@@ -1,9 +1,6 @@
-package org.darkware.hero.damage;
+package org.darkware.hero.ability;
 
 import com.google.gson.*;
-import org.darkware.hero.item.materialtype.MaterialTypes;
-import org.darkware.hero.item.model.Model;
-import org.darkware.hero.people.skills.Skill;
 
 import java.lang.reflect.Type;
 

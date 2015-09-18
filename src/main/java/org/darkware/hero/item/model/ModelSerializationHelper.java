@@ -1,18 +1,13 @@
 package org.darkware.hero.item.model;
 
 import com.google.gson.*;
-import org.darkware.hero.GameEnvironment;
 import org.darkware.hero.base.StaticId;
-import org.darkware.hero.damage.Attack;
-import org.darkware.hero.damage.DamageType;
-import org.darkware.hero.damage.Defense;
-import org.darkware.hero.item.Item;
+import org.darkware.hero.ability.Attack;
+import org.darkware.hero.ability.DamageType;
+import org.darkware.hero.ability.Defense;
 import org.darkware.hero.item.ItemSlot;
-import org.darkware.hero.item.materialtype.MaterialType;
 import org.darkware.hero.item.materialtype.MaterialTypes;
-import org.darkware.hero.item.model.Model;
 import org.darkware.hero.people.skills.Skill;
-import org.darkware.hero.people.tags.DefaultTagHandler;
 import org.darkware.hero.system.DataLoadingError;
 import org.darkware.hero.system.DeserializationCache;
 

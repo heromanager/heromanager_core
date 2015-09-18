@@ -1,6 +1,4 @@
-package org.darkware.hero.damage;
-
-import org.darkware.hero.base.Range;
+package org.darkware.hero.ability;
 
 /**
  * @author jeff

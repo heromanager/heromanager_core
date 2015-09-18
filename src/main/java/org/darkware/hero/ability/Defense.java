@@ -1,4 +1,4 @@
-package org.darkware.hero.damage;
+package org.darkware.hero.ability;
 
 import org.darkware.hero.base.EnumFactorSet;
 
